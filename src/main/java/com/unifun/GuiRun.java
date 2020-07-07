@@ -2,7 +2,6 @@ package com.unifun;
 
 import lombok.extern.java.Log;
 
-import javax.print.attribute.standard.NumberOfDocuments;
 import javax.swing.*;
 import java.awt.*;
 
@@ -89,6 +88,8 @@ public class GuiRun {
 
         sumButton.addActionListener(action ->
         {
+
+
             String[] strings = txtStartPointA.getText().split(",");
             String[] string2 = txtEndPointA.getText().split(",");
 
@@ -117,6 +118,8 @@ public class GuiRun {
             frameSum.add(jLabel);
 
 
+
+
         });
 
         diffButton.addActionListener(action->
@@ -142,7 +145,7 @@ public class GuiRun {
                     String tempVar1 = diff.getEndPoint().toString();
                     String tempVar = diff.getStartPoint().toString();
 
-                    Runnable taskDiff = () -> {
+
                         JFrame frameSum = new JFrame("Sum Frame");
                         frameSum.pack();
                         frameSum.setSize(200, 100);
@@ -151,7 +154,6 @@ public class GuiRun {
                         frameSum.setVisible(true);
                         JLabel jLabel = new JLabel(tempVar + tempVar1);
                         frameSum.add(jLabel);
-                    };
 
 
                 });
