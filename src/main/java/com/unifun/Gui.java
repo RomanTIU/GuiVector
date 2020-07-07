@@ -120,8 +120,7 @@ public class Gui {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-                GetLabel.newLabel(diff,frameResult);
+            GetLabel.newLabel(diff,frameResult);
 
         });
     }
