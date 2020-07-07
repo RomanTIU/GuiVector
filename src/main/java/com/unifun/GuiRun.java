@@ -69,11 +69,14 @@ public class GuiRun {
         JButton sumButton = new JButton("Sum");
 
         JButton diffButton = new JButton("Diff");
+        JButton lengthVector = new JButton("Length");
 
         // Add label and button to panel
         panel.add(sumButton, constr);
         constr.gridx=3;constr.gridy=4;
         panel.add(diffButton, constr);
+//        constr.gridx=0 ; constr.gridy=4;
+//        panel.add(lengthVector,constr);
 
         mainPanel.add(headingPanel);
         mainPanel.add(panel);
@@ -85,6 +88,13 @@ public class GuiRun {
         mainFrame.setLocationRelativeTo(null);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setVisible(true);
+
+        JFrame frameSum = new JFrame("Sum Frame");
+        frameSum.pack();
+        frameSum.setSize(250, 100);
+        frameSum.setLocationRelativeTo(null);
+        frameSum.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
 
         sumButton.addActionListener(action ->
         {
@@ -119,14 +129,11 @@ public class GuiRun {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                JFrame frameSum = new JFrame("Sum Frame");
-                frameSum.pack();
-                frameSum.setSize(250, 100);
-                frameSum.setLocationRelativeTo(null);
-                frameSum.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                frameSum.setVisible(true);
+
                 JLabel jLabel = new JLabel(sum.getStartPoint().toString() + sum.getEndPoint().toString());
+                frameSum.getContentPane().removeAll();
                 frameSum.add(jLabel);
+                frameSum.setVisible(true);
 
             }
             catch (NumberFormatException exc){
@@ -163,7 +170,7 @@ public class GuiRun {
                         Vector vector1 = new Vector(startPoint, endPoint);
                         Vector diff = new Vector();
                         try {
-                            diff = Vector.sumVector(vector, vector1);
+                            diff = Vector.diffVector(vector, vector1);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -171,14 +178,11 @@ public class GuiRun {
                         String tempVar = diff.getStartPoint().toString();
 
 
-                        JFrame frameDiff = new JFrame("Diff Frame");
-                        frameDiff.pack();
-                        frameDiff.setSize(250, 100);
-                        frameDiff.setLocationRelativeTo(null);
-                        frameDiff.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                        frameDiff.setVisible(true);
+
                         JLabel jLabel = new JLabel(tempVar + tempVar1);
-                        frameDiff.add(jLabel);
+                        frameSum.getContentPane().removeAll();
+                        frameSum.add(jLabel);
+                        frameSum.setVisible(true);
 
                     }catch (NumberFormatException exc){
                         JOptionPane.showMessageDialog(mainFrame,"Introdu numar!!!");

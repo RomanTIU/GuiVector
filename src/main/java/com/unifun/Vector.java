@@ -14,7 +14,8 @@ public class Vector {
 
 
     public double lengthVector() {
-        return Math.abs(Math.sqrt(Math.pow(endPoint.getX() - startPoint.getX(), 2) + Math.pow(endPoint.getY() - startPoint.getY(), 2)));
+        return Math.abs(Math.sqrt(Math.pow(endPoint.getX() - startPoint.getX(), 2) +
+                Math.pow(endPoint.getY() - startPoint.getY(), 2)));
 
     }
 
@@ -29,7 +30,8 @@ public class Vector {
         }
 
         Point firstPoint = new Point(prim.startPoint.getX(), prim.startPoint.getY());
-        Point secondPoint = new Point(prim.endPoint.getX() + (second.endPoint.getX() - second.startPoint.getX()), prim.endPoint.getY() + (second.endPoint.getY() - second.startPoint.getY()));
+        Point secondPoint = new Point(prim.endPoint.getX() + (second.endPoint.getX() - second.startPoint.getX()),
+                                      prim.endPoint.getY() + (second.endPoint.getY() - second.startPoint.getY()));
 
         return new Vector(firstPoint, secondPoint);
     }
@@ -46,7 +48,8 @@ public class Vector {
         }
 
         Point firstPoint = new Point(prim.endPoint.getX(), prim.endPoint.getY());
-        Point secondPoint = new Point((prim.startPoint.getX() + (second.endPoint.getX() - second.startPoint.getX())), prim.startPoint.getY() + (second.endPoint.getY() - second.startPoint.getY()));
+        Point secondPoint = new Point((prim.startPoint.getX() + (second.endPoint.getX() - second.startPoint.getX())),
+                                    prim.startPoint.getY() + (second.endPoint.getY() - second.startPoint.getY()));
 
         return new Vector(firstPoint, secondPoint);
     }
