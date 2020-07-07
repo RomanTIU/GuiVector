@@ -92,32 +92,46 @@ public class GuiRun {
 
             String[] strings = txtStartPointA.getText().split(",");
             String[] string2 = txtEndPointA.getText().split(",");
-
-            Point startPoint = new Point(Integer.parseInt(strings[0]), Integer.parseInt(strings[1]));
-            Point endPoint = new Point(Integer.parseInt(string2[0]), Integer.parseInt(string2[1]));
-            Vector vector = new Vector(startPoint,endPoint);
-
-            strings = txtStartPointB.getText().split(",");
-            string2 = txtEndPointB.getText().split(",");
-            endPoint = new Point(Integer.parseInt(string2[0]), Integer.parseInt(string2[1]));
-            startPoint = new Point(Integer.parseInt(strings[0]), Integer.parseInt(strings[1]));
-            Vector vector1 = new Vector(startPoint,endPoint);
-            Vector sum = new Vector();
             try {
-                sum = Vector.sumVector(vector,vector1);
-            } catch (Exception e) {
-                e.printStackTrace();
+                Integer.parseInt(strings[0]);
+                Integer.parseInt(strings[1]);
+                Integer.parseInt(string2[0]);
+                Integer.parseInt(string2[1]);
+
+                Point startPoint = new Point(Integer.parseInt(strings[0]), Integer.parseInt(strings[1]));
+                Point endPoint = new Point(Integer.parseInt(string2[0]), Integer.parseInt(string2[1]));
+                Vector vector = new Vector(startPoint, endPoint);
+
+                strings = txtStartPointB.getText().split(",");
+                string2 = txtEndPointB.getText().split(",");
+
+                Integer.parseInt(strings[0]);
+                Integer.parseInt(strings[1]);
+                Integer.parseInt(string2[0]);
+                Integer.parseInt(string2[1]);
+
+                endPoint = new Point(Integer.parseInt(string2[0]), Integer.parseInt(string2[1]));
+                startPoint = new Point(Integer.parseInt(strings[0]), Integer.parseInt(strings[1]));
+                Vector vector1 = new Vector(startPoint, endPoint);
+                Vector sum = new Vector();
+                try {
+                    sum = Vector.sumVector(vector, vector1);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                JFrame frameSum = new JFrame("Sum Frame");
+                frameSum.pack();
+                frameSum.setSize(250, 100);
+                frameSum.setLocationRelativeTo(null);
+                frameSum.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                frameSum.setVisible(true);
+                JLabel jLabel = new JLabel(sum.getStartPoint().toString() + sum.getEndPoint().toString());
+                frameSum.add(jLabel);
+
             }
-            JFrame frameSum = new JFrame("Sum Frame");
-            frameSum.pack();
-            frameSum.setSize(200, 100);
-            frameSum.setLocationRelativeTo(null);
-            frameSum.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frameSum.setVisible(true);
-            JLabel jLabel = new JLabel(sum.getStartPoint().toString()+sum.getEndPoint().toString());
-            frameSum.add(jLabel);
-
-
+            catch (NumberFormatException exc){
+                JOptionPane.showMessageDialog(mainFrame,"Introdu numar!");
+            }
 
 
         });
@@ -126,36 +140,49 @@ public class GuiRun {
         {
                     String[] strings = txtStartPointA.getText().split(",");
                     String[] string2 = txtEndPointA.getText().split(",");
-
-                    Point startPoint = new Point(Integer.parseInt(strings[0]), Integer.parseInt(strings[1]));
-                    Point endPoint = new Point(Integer.parseInt(string2[0]), Integer.parseInt(string2[1]));
-                    Vector vector = new Vector(startPoint,endPoint);
-
-                    strings = txtStartPointB.getText().split(",");
-                    string2 = txtEndPointB.getText().split(",");
-                    endPoint = new Point(Integer.parseInt(string2[0]), Integer.parseInt(string2[1]));
-                    startPoint = new Point(Integer.parseInt(strings[0]), Integer.parseInt(strings[1]));
-                    Vector vector1 = new Vector(startPoint,endPoint);
-                    Vector diff = new Vector();
                     try {
-                        diff = Vector.sumVector(vector,vector1);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    String tempVar1 = diff.getEndPoint().toString();
-                    String tempVar = diff.getStartPoint().toString();
+                        Integer.parseInt(strings[0]);
+                        Integer.parseInt(strings[1]);
+                        Integer.parseInt(string2[0]);
+                        Integer.parseInt(string2[1]);
+
+                        Point startPoint = new Point(Integer.parseInt(strings[0]), Integer.parseInt(strings[1]));
+                        Point endPoint = new Point(Integer.parseInt(string2[0]), Integer.parseInt(string2[1]));
+                        Vector vector = new Vector(startPoint, endPoint);
+
+                        strings = txtStartPointB.getText().split(",");
+                        string2 = txtEndPointB.getText().split(",");
+
+                        Integer.parseInt(string2[0]);
+                        Integer.parseInt(strings[0]);
+                        Integer.parseInt(string2[1]);
+                        Integer.parseInt(strings[1]);
+
+                        endPoint = new Point(Integer.parseInt(string2[0]), Integer.parseInt(string2[1]));
+                        startPoint = new Point(Integer.parseInt(strings[0]), Integer.parseInt(strings[1]));
+                        Vector vector1 = new Vector(startPoint, endPoint);
+                        Vector diff = new Vector();
+                        try {
+                            diff = Vector.sumVector(vector, vector1);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        String tempVar1 = diff.getEndPoint().toString();
+                        String tempVar = diff.getStartPoint().toString();
 
 
-                        JFrame frameSum = new JFrame("Sum Frame");
-                        frameSum.pack();
-                        frameSum.setSize(200, 100);
-                        frameSum.setLocationRelativeTo(null);
-                        frameSum.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                        frameSum.setVisible(true);
+                        JFrame frameDiff = new JFrame("Diff Frame");
+                        frameDiff.pack();
+                        frameDiff.setSize(250, 100);
+                        frameDiff.setLocationRelativeTo(null);
+                        frameDiff.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                        frameDiff.setVisible(true);
                         JLabel jLabel = new JLabel(tempVar + tempVar1);
-                        frameSum.add(jLabel);
+                        frameDiff.add(jLabel);
 
-
+                    }catch (NumberFormatException exc){
+                        JOptionPane.showMessageDialog(mainFrame,"Introdu numar!!!");
+                    }
                 });
 
 
