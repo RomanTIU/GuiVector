@@ -6,8 +6,8 @@ public class TryNumbers {
 
     public static void tryNumbers(String[] s,JFrame frame){
         try {
-            for (int i = 0; i <s.length ; i++) {
-                    Integer.parseInt(s[i]);
+            for (String value : s) {
+                Integer.parseInt(value);
             }
         } catch
             (NumberFormatException exc) {

@@ -44,7 +44,7 @@ public class Vector {
         Point secondPoint = new Point((prim.startPoint.getX() + (second.endPoint.getX() - second.startPoint.getX())),
                                     prim.startPoint.getY() + (second.endPoint.getY() - second.startPoint.getY()));
 
-        return new Vector(firstPoint, secondPoint);
+        return new Vector(secondPoint, firstPoint );
     }
 }
 
